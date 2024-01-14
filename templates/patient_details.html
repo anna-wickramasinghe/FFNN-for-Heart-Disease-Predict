@@ -1,0 +1,20 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Patient Details</title>
+	
+</head>
+<body>
+        {% block content %}
+          <h1>Heart Disease Risk Level Predictor</h1>
+          <p>Please fill this form with your correct and true details</p>
+            <form action="{{ url_for('get_results') }}" method="POST">
+                {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+            </form>
+
+        {% endblock %}
+</body>
+</html>
